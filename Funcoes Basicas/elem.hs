@@ -1,4 +1,5 @@
 -- opcao 1
+
 pertence1 y xs = elem y xs
 
 -- opcao 2

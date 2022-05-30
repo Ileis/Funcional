@@ -1,4 +1,3 @@
-import Distribution.Simple.Utils (xargs)
 elemento y [] = error "lista vazia"
 elemento y xs = xs !! index
                 where index = y `mod` length xs
