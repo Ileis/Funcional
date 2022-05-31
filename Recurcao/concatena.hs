@@ -1,0 +1,1 @@
+concatena xs ys = foldr (:) ys xs
