@@ -1,7 +1,7 @@
 # Funcional
 * Aquecimento - Feito
 * Operacoes Basicas - Feito
-* Recursao - X
+* Recursao - Em progresso
 * Data.List && Prelude - X
 * Zip e Fold - X
 * Maybe - X
