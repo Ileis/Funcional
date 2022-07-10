@@ -1,0 +1,1 @@
+produtoEscalar xs ys = sum $ zipWith (*) xs ys
