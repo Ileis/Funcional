@@ -1,0 +1,1 @@
+indices y xs = map snd $ filter (\(a, b) -> y == a) $ zip xs [0..]
