@@ -1,4 +1,3 @@
-import Data.Tuple (swap)
 reduce (a, b) = reduce' (a, b) [2..b]
 
 reduce' (a, b) [] = (a, b)
