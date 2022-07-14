@@ -9,3 +9,5 @@
 * Math                 -    X
 * Infinite             -    X
 * Ordenação            -    x
+* Novas                -    x
+* Challenges           -    x
