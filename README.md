@@ -6,7 +6,7 @@
 * Zip e Fold           -    Feito
 * Maybe                -    Feito
 * Strings              -    Feito
-* Math                 -    X
+* Math                 -    Feito
 * Infinite             -    X
 * Ordenação            -    x
 * Novas                -    x
