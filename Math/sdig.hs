@@ -1,0 +1,1 @@
+sdig x = if x < 10 then x else (x `mod` 10) + sdig (x `div` 10)
