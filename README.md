@@ -4,7 +4,7 @@
 * Recursao             -    Feito
 * Data.List && Prelude -    Feito
 * Zip e Fold           -    Feito
-* Maybe                -    X
+* Maybe                -    Feito
 * Strings              -    X
 * Math                 -    X
 * Infinite             -    X
