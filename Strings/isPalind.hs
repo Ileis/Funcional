@@ -1,0 +1,1 @@
+isPalind xs = foldl (\acc (x, y) -> if x == y then acc else False) True $ zip xs (reverse xs)
