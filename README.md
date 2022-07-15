@@ -5,7 +5,7 @@
 * Data.List && Prelude -    Feito
 * Zip e Fold           -    Feito
 * Maybe                -    Feito
-* Strings              -    X
+* Strings              -    Feito
 * Math                 -    X
 * Infinite             -    X
 * Ordenação            -    x
