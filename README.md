@@ -8,6 +8,5 @@
 * Strings              -    Feito
 * Math                 -    Feito
 * Infinite             -    Feito
-* Ordenação            -    x
-* Novas                -    x
+* Ordenação            -    Feito
 * Challenges           -    x
