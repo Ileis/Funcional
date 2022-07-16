@@ -9,4 +9,4 @@
 * Math                 -    Feito
 * Infinite             -    Feito
 * Ordenação            -    Feito
-* Challenges           -    x
+* Challenges           -    Feito
