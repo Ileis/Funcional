@@ -3,21 +3,30 @@ import Data.Maybe
 import Data.Char
 
 -- retorna o subvetor incluindo o elemento posição índice e lim elementos a esquerda e a direita
--- neib :: [a] -> Int -> Int -> [a]
--- neib xs index lim = ...
+neib :: [a] -> Int -> Int -> [a]
+neib xs index lim = subvec xs (index - lim) (index + lim) 0
+
+subvec [] a b acc = []
+subvec (x:xs) a b acc
+    | acc >= a && acc <= b = x : subvec xs a b (acc + 1)
+    | otherwise = subvec xs a b (acc + 1)
 
 -- verifica se o valor existe no vetor
 exists :: Eq a => a -> [a] -> Bool
 exists y xs = elem y xs
 
 -- converte de digito para char
--- dig2char :: (Eq a, Num a, Enum a) => a -> Char
--- dig2char dig = 
+dig2char :: (Eq a, Num a, Enum a) => a -> Char
+dig2char dig = fromJust $ lookup dig listDigit2Char
+
+listDigit2Char :: (Eq a, Num a, Enum a) => [(a, Char)]
+listDigit2Char = zip [0..9] ['0'..'9']
 
 
 -- verifica se esse valor pode ser inserido nesse índice
--- fit :: (String, Int) ->  Int -> Int -> Bool
--- fit (xs, lim) index value = ...
+fit :: (String, Int) ->  Int -> Int -> Bool
+fit (xs, lim) index value = not $ exists (dig2char value) $ neib xs index lim
+
 
 -- pega as posições de todos os .
 getHoles :: String -> [Int]
@@ -36,7 +45,7 @@ text = ['0'..'9']
 -- holes: lista de posições a serem preenchidas
 -- hindex: posicao atual no vetor de holes
 -- solve :: (String, Int) -> [Int] -> Int -> Maybe String
--- solve (xs, lim) holes hindex = ...
+-- solve (xs, lim) holes hindex =
 
 -- prepara a entrada para a função recursiva de resolução
 -- mainSolver :: String -> Int -> String
@@ -54,36 +63,36 @@ text = ['0'..'9']
 ------------------------------------------------------------------------------------
 
 
--- neibTest :: IO ()
--- neibTest = do
---     print $ neib "abcdef.." 0 2 == "abc"
---     print $ neib "abc.def"  3 1 == "c.d"
---     print $ neib "abc.def"  3 2 == "bc.de"
---     print $ neib "abc.def"  1 2 == "abc."
---     print $ neib "abc.def"  5 3 == "c.def"
+neibTest :: IO ()
+neibTest = do
+    print $ neib "abcdef.." 0 2 == "abc"
+    print $ neib "abc.def"  3 1 == "c.d"
+    print $ neib "abc.def"  3 2 == "bc.de"
+    print $ neib "abc.def"  1 2 == "abc."
+    print $ neib "abc.def"  5 3 == "c.def"
 
--- dig2charTest :: IO ()
--- dig2charTest = do
---     print $ map dig2char [0..9] == ['0'..'9']
+dig2charTest :: IO ()
+dig2charTest = do
+    print $ map dig2char [0..9] == ['0'..'9']
 
--- setTest :: IO ()
--- setTest = do
---     print $ set "12345" 0 9 == "92345"
---     print $ set "12345" 1 9 == "19345"
---     print $ set "12345" 4 9 == "12349"
+setTest :: IO ()
+setTest = do
+    print $ set "12345" 0 9 == "92345"
+    print $ set "12345" 1 9 == "19345"
+    print $ set "12345" 4 9 == "12349"
 
--- fitTest :: IO ()
--- fitTest = do -- (fit ("12.345", 1) 2) se torna uma função curry faltando só uma var que seria o valor recebido do vetor
---     print $ map (fit ("12.345", 1) 2) [1,2,3,4,5] == [True, False, False, True, True]
---     print $ map (fit ("12.345", 2) 2) [1,2,3,4,5] == [False, False, False, False, True]
---     print $ map (fit ("12.345", 3) 2) [1,2,3,4,5] == [False, False, False, False, False]
---     print $ map (fit ("12345.", 4) 5) [1,2,3,4,5] == [True, False, False, False, False]
+fitTest :: IO ()
+fitTest = do -- (fit ("12.345", 1) 2) se torna uma função curry faltando só uma var que seria o valor recebido do vetor
+    print $ map (fit ("12.345", 1) 2) [1,2,3,4,5] == [True, False, False, True, True]
+    print $ map (fit ("12.345", 2) 2) [1,2,3,4,5] == [False, False, False, False, True]
+    print $ map (fit ("12.345", 3) 2) [1,2,3,4,5] == [False, False, False, False, False]
+    print $ map (fit ("12345.", 4) 5) [1,2,3,4,5] == [True, False, False, False, False]
 
--- getHolesTest :: IO ()
--- getHolesTest = do
---     print $ getHoles "12.3.." == [2,4,5]
---     print $ getHoles "12.3.4" == [2,4]
---     print $ getHoles "...3.4" == [0,1,2,4]
+getHolesTest :: IO ()
+getHolesTest = do
+    print $ getHoles "12.3.." == [2,4,5]
+    print $ getHoles "12.3.4" == [2,4]
+    print $ getHoles "...3.4" == [0,1,2,4]
 
 -- mainTest :: IO ()
 -- mainTest = do
